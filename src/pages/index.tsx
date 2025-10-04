@@ -1,10 +1,11 @@
+import Player from "@/components/Player";
 import DefaultLayout from "@/layouts/default";
 
 function index() {
   return (
     <>
       <DefaultLayout>
-        <h1>Hello! 🎵</h1>
+        <Player />
       </DefaultLayout>
     </>
   );

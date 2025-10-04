@@ -26,6 +26,7 @@
     "@heroui/modal": "^2.2.23",
     "@heroui/navbar": "^2.2.24",
     "@heroui/shared-utils": "^2.1.11",
+    "@heroui/slider": "^2.4.23",
     "@heroui/snippet": "^2.2.27",
     "@heroui/switch": "^2.2.23",
     "@heroui/system": "^2.4.22",

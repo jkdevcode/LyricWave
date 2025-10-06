@@ -323,6 +323,31 @@ export const PauseCircleIcon = ({
   );
 };
 
+export const PlayCircleIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconProps) => {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height={size || height}
+      role="presentation"
+      viewBox="0 0 24 24"
+      width={size || width}
+      {...props}
+    >
+      <path
+        d="M11.9688 2C6.44875 2 1.96875 6.48 1.96875 12C1.96875 17.52 6.44875 22 11.9688 22C17.4888 22 21.9688 17.52 21.9688 12C21.9688 6.48 17.4988 2 11.9688 2ZM9.96875 8.44C9.96875 8.08 10.3187 7.85 10.6387 8.02L15.6487 10.58C15.9587 10.74 15.9587 11.25 15.6487 11.41L10.6387 13.97C10.3187 14.14 9.96875 13.91 9.96875 13.55V8.44Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 export const NextIcon = ({ size = 24, width, height, ...props }: IconProps) => {
   return (
     <svg

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Rock That Body",
+    "artist": "The Black Eyed Peas",
+    "src": "/src/assets/music/Rock That Body.mp3"
+  },
+  {
+    "id": 2,
+    "title": "Memories",
+    "artist": "David Guetta ft. Kid Cudi",
+    "src": "/src/assets/music/Memories.mp3"
+  },
+  {
+    "id": 3,
+    "title": "Titanium",
+    "artist": "David Guetta ft. Sia",
+    "src": "/src/assets/music/Titanium.mp3"
+  }
+]

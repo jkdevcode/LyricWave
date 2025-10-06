@@ -23,8 +23,8 @@ export default [
         window: "readonly",
         SVGSVGElement: "readonly",
         URL: "readonly",
-        FormData: "readonly",
-        HTMLFormElement: "readonly",
+        HTMLAudioElement: "readonly",
+        fetch: "readonly",
       },
       parserOptions: {
         ecmaFeatures: {

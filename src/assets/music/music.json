@@ -7,14 +7,14 @@
   },
   {
     "id": 2,
-    "title": "Memories",
-    "artist": "David Guetta ft. Kid Cudi",
-    "src": "/src/assets/music/Memories.mp3"
+    "title": "Starboy",
+    "artist": "The Weeknd - Starboy ft. Daft Punk",
+    "src": "/src/assets/music/Starboy.mp3"
   },
   {
     "id": 3,
-    "title": "Titanium",
-    "artist": "David Guetta ft. Sia",
-    "src": "/src/assets/music/Titanium.mp3"
+    "title": "Softcore",
+    "artist": "The Neighbourhood",
+    "src": "/src/assets/music/Softcore.mp3"
   }
 ]

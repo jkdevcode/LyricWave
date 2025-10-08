@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-
 interface LyricsProps {
   currentTime: number;
-  lyricsPath: string; // Nuevo prop
+  lyricsPath: string;
 }
-
 interface Line {
   time: number;
   text: string;
@@ -27,18 +25,16 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
   useEffect(() => {
     if (!lyricsData.length) {
       setCurrentLine("");
-
       return;
     }
     const current = lyricsData.findLast((line) => line.time <= currentTime);
-
     setCurrentLine(current ? current.text : "");
   }, [currentTime, lyricsData]);
 
   return (
-    <div className="text-center mt-6">
-      <p className="text-lg font-semibold text-gradient bg-clip-text">
-        {currentLine}
+    <div className="flex items-center justify-center h-full p-8">
+      <p className="text-3xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 transition-all duration-300">
+        {currentLine || "♪ ♪ ♪"}
       </p>
     </div>
   );

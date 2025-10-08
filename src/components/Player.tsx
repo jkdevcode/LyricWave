@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Slider } from "@heroui/slider";
-import { Card, CardBody } from "@heroui/card";
 
 import Lyrics from "./lyrics";
+import Visualizer from "./Visualizer";
 
 import {
   HeartIcon,
@@ -37,8 +37,6 @@ const Player = () => {
         audioRef.current.play();
       }
     }
-    // Opcional: resetear el like por canción
-    // setLiked(false);
   }, [currentSongIndex]);
 
   // Si termina la canción, pasa a la siguiente automáticamente
@@ -53,12 +51,12 @@ const Player = () => {
     }
   };
 
-  const handlePlayPause = () => {
+  const handlePlayPause = async () => {
     if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
+    if (!isPlaying) {
       audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
     setIsPlaying(!isPlaying);
   };
@@ -78,7 +76,6 @@ const Player = () => {
   const handleNext = () => {
     if (isShuffle) {
       let nextIndex;
-
       do {
         nextIndex = Math.floor(Math.random() * musicData.length);
       } while (nextIndex === currentSongIndex && musicData.length > 1);
@@ -90,14 +87,13 @@ const Player = () => {
 
   const handlePrevious = () => {
     setCurrentSongIndex((prev) =>
-      prev === 0 ? musicData.length - 1 : prev - 1,
+      prev === 0 ? musicData.length - 1 : prev - 1
     );
   };
 
   const handleSliderChange = (value: number | number[]) => {
     if (audioRef.current) {
       const newTime = Array.isArray(value) ? value[0] : value;
-
       audioRef.current.currentTime = newTime;
       setCurrentTime(newTime);
     }
@@ -107,126 +103,143 @@ const Player = () => {
     if (!time || isNaN(time)) return "0:00";
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
   return (
     <>
-      <Card
-        isBlurred
-        className="border-none bg-background/60 dark:bg-default-100/50 max-w-[410px]"
-        shadow="sm"
-      >
-        <CardBody className="flex flex-col items-center gap-6">
-          {/* 🎵 Info de la canción */}
-          <div className="flex justify-between items-start w-full">
-            <div className="flex flex-col gap-0">
-              <h2 className="text-xl font-bold">{currentSong.title}</h2>
-              <p className="text-sm opacity-80">{currentSong.artist}</p>
-            </div>
-            {/* ❤️ Like */}
-            <Button
-              isIconOnly
-              radius="full"
-              variant="light"
-              onClick={() => setLiked(!liked)}
-            >
-              <HeartIcon
-                className={liked ? "[&>path]:stroke-transparent" : ""}
-                fill={liked ? "currentColor" : "none"}
-                size={24}
+      <Visualizer audioSrc={currentSong.src} isPlaying={isPlaying} />
+
+      <div className="relative z-10 container mx-auto px-4 py-8 min-h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
+          {/* Reproductor */}
+          <div className="flex justify-center items-center order-1">
+            <div className="w-full max-w-md bg-black/40 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10">
+              {/* Info de la canción */}
+              <div className="flex justify-between items-start mb-8">
+                <div>
+                  <h2 className="text-2xl font-bold mb-1">{currentSong.title}</h2>
+                  <p className="text-gray-400">{currentSong.artist}</p>
+                </div>
+                <Button
+                  isIconOnly
+                  radius="full"
+                  variant="light"
+                  onClick={() => setLiked(!liked)}
+                  className="hover:bg-white/10 transition-all duration-200"
+                >
+                  <HeartIcon
+                    className={liked ? "[&>path]:stroke-transparent" : ""}
+                    fill={liked ? "currentColor" : "none"}
+                    size={24}
+                  />
+                </Button>
+              </div>
+
+              {/* Audio oculto */}
+              <audio
+                ref={audioRef}
+                preload="metadata"
+                src={currentSong.src}
+                onEnded={handleEnded}
+                onLoadedMetadata={handleLoadedMetadata}
+                onTimeUpdate={handleTimeUpdate}
               />
-            </Button>
+
+              {/* Barra de progreso */}
+              <Slider
+                aria-label="Progress"
+                className="w-full mb-2"
+                classNames={{
+                  track: "bg-gray-700",
+                  filler: "bg-gradient-to-r from-blue-500 to-purple-500",
+                  thumb: "bg-white shadow-lg",
+                }}
+                maxValue={duration}
+                minValue={0}
+                size="sm"
+                step={0.1}
+                value={currentTime}
+                onChange={handleSliderChange}
+              />
+
+              {/* Tiempos */}
+              <div className="flex justify-between text-sm text-gray-400 mb-8">
+                <span>{formatTime(currentTime)}</span>
+                <span>{formatTime(duration)}</span>
+              </div>
+
+              {/* Controles */}
+              <div className="flex items-center justify-center gap-6">
+                <Button
+                  isIconOnly
+                  className={`hover:bg-white/10 transition-all duration-200 ${
+                    isRepeat ? "text-blue-400" : "text-gray-400"
+                  }`}
+                  radius="full"
+                  variant="light"
+                  onClick={() => setIsRepeat((r) => !r)}
+                >
+                  <RepeatOneIcon size={24} />
+                </Button>
+
+                <Button
+                  isIconOnly
+                  className="hover:bg-white/10 transition-all duration-200"
+                  radius="full"
+                  variant="light"
+                  onClick={handlePrevious}
+                >
+                  <PreviousIcon size={28} />
+                </Button>
+
+                <Button
+                  isIconOnly
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-200 transform hover:scale-105"
+                  radius="full"
+                  size="lg"
+                  onClick={handlePlayPause}
+                >
+                  {isPlaying ? (
+                    <PauseCircleIcon size={48} />
+                  ) : (
+                    <PlayCircleIcon size={48} />
+                  )}
+                </Button>
+
+                <Button
+                  isIconOnly
+                  className="hover:bg-white/10 transition-all duration-200"
+                  radius="full"
+                  variant="light"
+                  onClick={handleNext}
+                >
+                  <NextIcon size={28} />
+                </Button>
+
+                <Button
+                  isIconOnly
+                  className={`hover:bg-white/10 transition-all duration-200 ${
+                    isShuffle ? "text-blue-400" : "text-gray-400"
+                  }`}
+                  radius="full"
+                  variant="light"
+                  onClick={() => setIsShuffle((s) => !s)}
+                >
+                  <ShuffleIcon size={24} />
+                </Button>
+              </div>
+            </div>
           </div>
 
-          {/* 🎵 Audio oculto */}
-          <audio
-            ref={audioRef}
-            preload="metadata"
-            src={currentSong.src}
-            onEnded={handleEnded}
-            onLoadedMetadata={handleLoadedMetadata}
-            onTimeUpdate={handleTimeUpdate}
-          />
-
-          {/* 🎶 Barra de progreso */}
-          <Slider
-            aria-label="Progress"
-            className="w-full"
-            maxValue={duration}
-            minValue={0}
-            size="sm"
-            step={0.1}
-            value={currentTime}
-            onChange={handleSliderChange}
-          />
-
-          {/* ⏱️ Tiempos */}
-          <div className="flex justify-between w-full text-xs opacity-80">
-            <span>{formatTime(currentTime)}</span>
-            <span>{formatTime(duration)}</span>
+          {/* Letras */}
+          <div className="flex items-center justify-center min-h-[300px] lg:min-h-[500px] order-2">
+            <div className="w-full max-w-2xl bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-white/5">
+              <Lyrics currentTime={currentTime} lyricsPath={currentSong.lyrics} />
+            </div>
           </div>
-
-          {/* 🎛️ Controles */}
-          <div className="flex items-center justify-center gap-6">
-            <Button
-              isIconOnly
-              className={`data-hover:bg-foreground/10! ${isRepeat ? "text-primary" : ""}`}
-              radius="full"
-              variant="light"
-              onClick={() => setIsRepeat((r) => !r)}
-            >
-              <RepeatOneIcon size={24} />
-            </Button>
-
-            <Button
-              isIconOnly
-              className="data-hover:bg-foreground/10!"
-              radius="full"
-              variant="light"
-              onClick={handlePrevious}
-            >
-              <PreviousIcon size={28} />
-            </Button>
-
-            <Button
-              isIconOnly
-              className="data-hover:bg-foreground/10!"
-              radius="full"
-              variant="light"
-              onClick={handlePlayPause}
-            >
-              {isPlaying ? (
-                <PauseCircleIcon size={48} />
-              ) : (
-                <PlayCircleIcon size={48} />
-              )}
-            </Button>
-
-            <Button
-              isIconOnly
-              className="data-hover:bg-foreground/10!"
-              radius="full"
-              variant="light"
-              onClick={handleNext}
-            >
-              <NextIcon size={28} />
-            </Button>
-
-            <Button
-              isIconOnly
-              className={`data-hover:bg-foreground/10! ${isShuffle ? "text-primary" : ""}`}
-              radius="full"
-              variant="light"
-              onClick={() => setIsShuffle((s) => !s)}
-            >
-              <ShuffleIcon size={24} />
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
-      <Lyrics currentTime={currentTime} lyricsPath={currentSong.lyrics} />
+        </div>
+      </div>
     </>
   );
 };

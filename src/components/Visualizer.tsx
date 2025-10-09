@@ -15,9 +15,11 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+
     if (!ctx) return;
 
     const particleCount = 150;
@@ -27,6 +29,7 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
@@ -42,16 +45,19 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
 
     // Configurar analizador de audio
     const audioElement = document.querySelector("audio");
+
     if (audioElement && !analyserRef.current) {
       try {
         const audioContext = new (window.AudioContext ||
           (window as any).webkitAudioContext)();
         const analyser = audioContext.createAnalyser();
+
         analyser.fftSize = 256;
 
         // Evitar crear múltiples fuentes del mismo elemento
         if (!sourceRef.current) {
           const source = audioContext.createMediaElementSource(audioElement);
+
           source.connect(analyser);
           analyser.connect(audioContext.destination);
           sourceRef.current = source;
@@ -60,12 +66,13 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
         analyserRef.current = analyser;
         audioContextRef.current = audioContext;
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.log("Audio context error:", e);
       }
     }
 
     const dataArray = new Uint8Array(
-      analyserRef.current?.frequencyBinCount || 128
+      analyserRef.current?.frequencyBinCount || 128,
     );
 
     // Función de animación
@@ -74,6 +81,7 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       let audioIntensity = 0;
+
       if (analyserRef.current && isPlaying) {
         analyserRef.current.getByteFrequencyData(dataArray);
         audioIntensity =
@@ -83,6 +91,7 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
       particlesRef.current.forEach((particle) => {
         // Actualizar posición
         const speed = 1 + audioIntensity * 3;
+
         particle.x += particle.vx * speed;
         particle.y += particle.vy * speed;
 
@@ -102,15 +111,16 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
           0,
           particle.x,
           particle.y,
-          glowSize
+          glowSize,
         );
+
         gradient.addColorStop(
           0,
-          `rgba(96, 165, 250, ${particle.opacity + audioIntensity * 0.5})`
+          `rgba(96, 165, 250, ${particle.opacity + audioIntensity * 0.5})`,
         );
         gradient.addColorStop(
           0.5,
-          `rgba(147, 51, 234, ${particle.opacity * 0.5})`
+          `rgba(147, 51, 234, ${particle.opacity * 0.5})`,
         );
         gradient.addColorStop(1, "rgba(96, 165, 250, 0)");
 

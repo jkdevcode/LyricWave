@@ -76,6 +76,7 @@ const Player = () => {
   const handleNext = () => {
     if (isShuffle) {
       let nextIndex;
+
       do {
         nextIndex = Math.floor(Math.random() * musicData.length);
       } while (nextIndex === currentSongIndex && musicData.length > 1);
@@ -87,13 +88,14 @@ const Player = () => {
 
   const handlePrevious = () => {
     setCurrentSongIndex((prev) =>
-      prev === 0 ? musicData.length - 1 : prev - 1
+      prev === 0 ? musicData.length - 1 : prev - 1,
     );
   };
 
   const handleSliderChange = (value: number | number[]) => {
     if (audioRef.current) {
       const newTime = Array.isArray(value) ? value[0] : value;
+
       audioRef.current.currentTime = newTime;
       setCurrentTime(newTime);
     }
@@ -103,6 +105,7 @@ const Player = () => {
     if (!time || isNaN(time)) return "0:00";
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
+
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
@@ -118,15 +121,17 @@ const Player = () => {
               {/* Info de la canción */}
               <div className="flex justify-between items-start mb-8">
                 <div>
-                  <h2 className="text-2xl font-bold mb-1">{currentSong.title}</h2>
+                  <h2 className="text-2xl font-bold mb-1">
+                    {currentSong.title}
+                  </h2>
                   <p className="text-gray-400">{currentSong.artist}</p>
                 </div>
                 <Button
                   isIconOnly
+                  className="hover:bg-white/10 transition-all duration-200"
                   radius="full"
                   variant="light"
                   onClick={() => setLiked(!liked)}
-                  className="hover:bg-white/10 transition-all duration-200"
                 >
                   <HeartIcon
                     className={liked ? "[&>path]:stroke-transparent" : ""}
@@ -235,7 +240,10 @@ const Player = () => {
           {/* Letras */}
           <div className="flex items-center justify-center min-h-[300px] lg:min-h-[500px] order-2">
             <div className="w-full max-w-2xl bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-white/5">
-              <Lyrics currentTime={currentTime} lyricsPath={currentSong.lyrics} />
+              <Lyrics
+                currentTime={currentTime}
+                lyricsPath={currentSong.lyrics}
+              />
             </div>
           </div>
         </div>

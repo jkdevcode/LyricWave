@@ -24,7 +24,14 @@ export default [
         SVGSVGElement: "readonly",
         URL: "readonly",
         HTMLAudioElement: "readonly",
+        HTMLCanvasElement: "readonly",
+        MediaElementAudioSourceNode: "readonly",
+        requestAnimationFrame: "readonly",
+        cancelAnimationFrame: "readonly",
+        AnalyserNode: "readonly",
+        AudioContext: "readonly",
         fetch: "readonly",
+        console: "readonly",
       },
       parserOptions: {
         ecmaFeatures: {

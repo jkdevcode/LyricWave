@@ -25,10 +25,21 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
   useEffect(() => {
     if (!lyricsData.length) {
       setCurrentLine("");
+
       return;
     }
-    const current = lyricsData.findLast((line) => line.time <= currentTime);
-    setCurrentLine(current ? current.text : "");
+    let foundLine: Line | null = null;
+
+    for (let i = lyricsData.length - 1; i >= 0; i--) {
+      const line = lyricsData[i];
+
+      if (line.time <= currentTime) {
+        foundLine = line;
+        break;
+      }
+    }
+
+    setCurrentLine(foundLine ? foundLine.text : "");
   }, [currentTime, lyricsData]);
 
   return (

@@ -1,36 +1,36 @@
 # 🎵 LyricalPlayer
 
-Un reproductor musical interactivo hecho con **React + TypeScript + TailwindCSS + HeroUI**, diseñado para reproducir canciones y mostrar letras sincronizadas al ritmo de la música.
+An interactive music player built with React + TypeScript + TailwindCSS + HeroUI, designed to play songs and display lyrics synchronized to the beat of the music.
 
-## 🚀 Características
+## 🚀 Features
 
-- 🎶 Reproducción de canciones locales o desde la web.  
-- ⏯️ Controles completos: Play / Pause / Forward / Rewind.  
-- 💬 Sincronización de letras en tiempo real.  
-- 🎨 Interfaz moderna con animaciones suaves y gradientes.  
-- 🔊 Futuro soporte para **Tone.js** (análisis y manipulación de audio).  
-- 🌐 Preparado para expandirse con efectos visuales en 3D (Three.js / React Three Fiber).
+- 🎶 Play local songs or songs from the web.
+- ⏯️ Full controls: Play / Pause / Forward / Rewind.
+- 💬 Real-time lyrics synchronization.
+- 🎨 Modern interface with smooth animations and gradients.  
+- 🔊 Future support for **Tone.js** (audio analysis and manipulation).
+- 🌐 Ready to expand with 3D visual effects (Three.js / React Three Fiber).
 
-## 🧩 Tecnologías
+## 🧩 Technologies
 
-| Tecnología | Uso principal |
+| Technology | Primary use |
 |-------------|----------------|
-| React + TypeScript | Base del proyecto y componentes funcionales |
-| TailwindCSS | Estilos rápidos y personalizables |
-| HeroUI | Componentes UI elegantes y accesibles |
-| Tone.js | Control y análisis del audio (próximamente) |
+| React + TypeScript | Project foundation and functional components |
+| TailwindCSS | Fast and customizable styles |
+| HeroUI | Elegant and accessible UI components |
+| Tone.js | Audio control and analysis (coming soon) |
 
-## 🛠️ Instalación y ejecución
+## 🛠️ Installation and execution
 
 ```bash
-# 1️⃣ Clonar el repositorio
+# 1️⃣ Clone the repository
 git clone https://github.com/tuusuario/LyricalPlayer.git
 
-# 2️⃣ Entrar al proyecto
+# 2️⃣ Enter the project
 cd LyricalPlayer
 
-# 3️⃣ Instalar dependencias
+# 3️⃣ Install dependencies
 npm install
 
-# 4️⃣ Iniciar el servidor local
+# 4️⃣ Start the local server
 npm run dev

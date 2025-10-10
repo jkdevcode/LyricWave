@@ -1,17 +1,15 @@
 import { useRef, useEffect } from "react";
 
+import { getSharedAnalyser } from "./Player";
+
 interface VisualizerProps {
-  audioSrc: string;
   isPlaying: boolean;
 }
 
-export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
+export default function Visualizer({ isPlaying }: VisualizerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
   const particlesRef = useRef<any[]>([]);
-  const analyserRef = useRef<AnalyserNode | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -43,37 +41,7 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
       opacity: Math.random() * 0.5 + 0.3,
     }));
 
-    // Configurar analizador de audio
-    const audioElement = document.querySelector("audio");
-
-    if (audioElement && !analyserRef.current) {
-      try {
-        const audioContext = new (window.AudioContext ||
-          (window as any).webkitAudioContext)();
-        const analyser = audioContext.createAnalyser();
-
-        analyser.fftSize = 256;
-
-        // Evitar crear múltiples fuentes del mismo elemento
-        if (!sourceRef.current) {
-          const source = audioContext.createMediaElementSource(audioElement);
-
-          source.connect(analyser);
-          analyser.connect(audioContext.destination);
-          sourceRef.current = source;
-        }
-
-        analyserRef.current = analyser;
-        audioContextRef.current = audioContext;
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log("Audio context error:", e);
-      }
-    }
-
-    const dataArray = new Uint8Array(
-      analyserRef.current?.frequencyBinCount || 128,
-    );
+    const dataArray = new Uint8Array(128);
 
     // Función de animación
     const animate = () => {
@@ -82,10 +50,17 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
 
       let audioIntensity = 0;
 
-      if (analyserRef.current && isPlaying) {
-        analyserRef.current.getByteFrequencyData(dataArray);
-        audioIntensity =
-          dataArray.reduce((a, b) => a + b, 0) / dataArray.length / 255;
+      // Usar el analizador compartido del Player
+      const analyser = getSharedAnalyser();
+
+      if (analyser && isPlaying) {
+        try {
+          analyser.getByteFrequencyData(dataArray);
+          audioIntensity =
+            dataArray.reduce((a, b) => a + b, 0) / dataArray.length / 255;
+        } catch (error) {
+          console.warn("Error al obtener datos de frecuencia:", error);
+        }
       }
 
       particlesRef.current.forEach((particle) => {
@@ -139,7 +114,9 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 100) {
-              ctx.strokeStyle = `rgba(147, 51, 234, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`;
+              ctx.strokeStyle = `rgba(147, 51, 234, ${
+                (1 - distance / 100) * 0.2 * (1 + audioIntensity)
+              })`;
               ctx.lineWidth = 1;
               ctx.beginPath();
               ctx.moveTo(p1.x, p1.y);
@@ -161,7 +138,7 @@ export default function Visualizer({ isPlaying, audioSrc }: VisualizerProps) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isPlaying, audioSrc]);
+  }, [isPlaying]);
 
   return (
     <canvas

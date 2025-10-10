@@ -16,6 +16,53 @@ import {
 } from "@/components/icons";
 import musicData from "@/assets/music/music.json";
 
+// Crear un contexto de audio compartido (Singleton)
+let sharedAudioContext: AudioContext | null = null;
+let sharedAnalyser: AnalyserNode | null = null;
+let sharedSource: MediaElementAudioSourceNode | null = null;
+
+export const getSharedAudioContext = () => {
+  if (!sharedAudioContext) {
+    sharedAudioContext = new (window.AudioContext ||
+      (window as any).webkitAudioContext)();
+  }
+
+  return sharedAudioContext;
+};
+
+export const getSharedAnalyser = () => {
+  return sharedAnalyser;
+};
+
+export const initializeSharedAudio = (audioElement: HTMLAudioElement) => {
+  try {
+    const audioContext = getSharedAudioContext();
+
+    if (!sharedAnalyser) {
+      const analyser = audioContext.createAnalyser();
+
+      analyser.fftSize = 256;
+
+      if (!sharedSource) {
+        const source = audioContext.createMediaElementSource(audioElement);
+
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+        sharedSource = source;
+      }
+
+      sharedAnalyser = analyser;
+    }
+
+    // Asegurar que el contexto esté activo
+    if (audioContext.state === "suspended") {
+      audioContext.resume();
+    }
+  } catch (error) {
+    console.error("Error al inicializar AudioContext:", error);
+  }
+};
+
 const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -28,23 +75,35 @@ const Player = () => {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Inicializar AudioContext compartido una sola vez
+  useEffect(() => {
+    if (audioRef.current) {
+      initializeSharedAudio(audioRef.current);
+    }
+  }, []);
+
   // Reproduce automáticamente al cambiar de canción si estaba en play
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       setCurrentTime(0);
+
       if (isPlaying) {
-        audioRef.current.play();
+        audioRef.current.play().catch((error) => {
+          console.error("Error al reproducir:", error);
+        });
       }
     }
-  }, [currentSongIndex]);
+  }, [currentSongIndex, isPlaying]);
 
   // Si termina la canción, pasa a la siguiente automáticamente
   const handleEnded = () => {
     if (isRepeat) {
       if (audioRef.current) {
         audioRef.current.currentTime = 0;
-        audioRef.current.play();
+        audioRef.current.play().catch((error) => {
+          console.error("Error al reiniciar:", error);
+        });
       }
     } else {
       handleNext();
@@ -53,11 +112,22 @@ const Player = () => {
 
   const handlePlayPause = async () => {
     if (!audioRef.current) return;
+
+    // Asegurar que el AudioContext esté activo
+    const audioContext = getSharedAudioContext();
+
+    if (audioContext.state === "suspended") {
+      await audioContext.resume();
+    }
+
     if (!isPlaying) {
-      audioRef.current.play();
+      audioRef.current.play().catch((error) => {
+        console.error("Error al reproducir:", error);
+      });
     } else {
       audioRef.current.pause();
     }
+
     setIsPlaying(!isPlaying);
   };
 
@@ -80,6 +150,7 @@ const Player = () => {
       do {
         nextIndex = Math.floor(Math.random() * musicData.length);
       } while (nextIndex === currentSongIndex && musicData.length > 1);
+
       setCurrentSongIndex(nextIndex);
     } else {
       setCurrentSongIndex((prev) => (prev + 1) % musicData.length);
@@ -111,7 +182,7 @@ const Player = () => {
 
   return (
     <>
-      <Visualizer audioSrc={currentSong.src} isPlaying={isPlaying} />
+      <Visualizer isPlaying={isPlaying} />
 
       <div className="relative z-10 container mx-auto px-4 py-8 min-h-screen">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
@@ -141,7 +212,7 @@ const Player = () => {
                 </Button>
               </div>
 
-              {/* Audio oculto */}
+              {/* Audio */}
               <audio
                 ref={audioRef}
                 preload="metadata"

@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Slider } from "@heroui/slider";
 
+import musicData from "../../public/music/music.json";
+
 import Lyrics from "./lyrics";
 import Visualizer from "./Visualizer";
 
@@ -14,7 +16,6 @@ import {
   RepeatOneIcon,
   ShuffleIcon,
 } from "@/components/icons";
-import musicData from "@/assets/music/music.json";
 
 // Crear un contexto de audio compartido (Singleton)
 let sharedAudioContext: AudioContext | null = null;

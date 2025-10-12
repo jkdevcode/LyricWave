@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Rock That Body",
+    "artist": "The Black Eyed Peas",
+    "src": "/music/Rock That Body.mp3",
+    "lyrics": "/lyrics/Rock That Body.json"
+  },
+  {
+    "id": 2,
+    "title": "Starboy",
+    "artist": "The Weeknd - Starboy ft. Daft Punk",
+    "src": "/music/Starboy.mp3",
+    "lyrics": "/lyrics/Starboy.json"
+  },
+  {
+    "id": 3,
+    "title": "Softcore",
+    "artist": "The Neighbourhood",
+    "src": "/music/Softcore.mp3",
+    "lyrics": "/lyrics/Softcore.json"
+  }
+]

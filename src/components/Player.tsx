@@ -185,8 +185,8 @@ const Player = () => {
     <>
       <Visualizer isPlaying={isPlaying} />
 
-      <div className="relative z-10 container mx-auto px-4 py-8 min-h-screen">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
+      <div className="relative z-10 container mx-auto px-4 py-8 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ">
           {/* Reproductor */}
           <div className="flex justify-center items-center order-1">
             <div className="w-full max-w-md bg-black/40 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10">
@@ -310,7 +310,7 @@ const Player = () => {
           </div>
 
           {/* Letras */}
-          <div className="flex items-center justify-center min-h-[300px] lg:min-h-[500px] order-2">
+          <div className="flex items-center justify-center min-h-[100px] lg:min-h-[300px] order-2">
             <div className="w-full max-w-2xl bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-white/5">
               <Lyrics
                 currentTime={currentTime}

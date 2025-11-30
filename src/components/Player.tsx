@@ -189,18 +189,18 @@ const Player = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ">
           {/* Reproductor */}
           <div className="flex justify-center items-center order-1">
-            <div className="w-full max-w-md bg-black/40 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/10">
+            <div className="w-full max-w-md bg-white/40 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-black/5 dark:border-white/10">
               {/* Info de la canción */}
               <div className="flex justify-between items-start mb-8">
                 <div>
-                  <h2 className="text-2xl font-bold mb-1">
+                  <h2 className="text-2xl font-bold mb-1 text-foreground">
                     {currentSong.title}
                   </h2>
-                  <p className="text-gray-400">{currentSong.artist}</p>
+                  <p className="text-default-500">{currentSong.artist}</p>
                 </div>
                 <Button
                   isIconOnly
-                  className="hover:bg-white/10 transition-all duration-200"
+                  className="hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                   radius="full"
                   variant="light"
                   onClick={() => setLiked(!liked)}
@@ -228,9 +228,9 @@ const Player = () => {
                 aria-label="Progress"
                 className="w-full mb-2"
                 classNames={{
-                  track: "bg-gray-700",
+                  track: "bg-default-200 dark:bg-gray-700",
                   filler: "bg-gradient-to-r from-blue-500 to-purple-500",
-                  thumb: "bg-white shadow-lg",
+                  thumb: "bg-background shadow-lg",
                 }}
                 maxValue={duration}
                 minValue={0}
@@ -241,7 +241,7 @@ const Player = () => {
               />
 
               {/* Tiempos */}
-              <div className="flex justify-between text-sm text-gray-400 mb-8">
+              <div className="flex justify-between text-sm text-default-500 mb-8">
                 <span>{formatTime(currentTime)}</span>
                 <span>{formatTime(duration)}</span>
               </div>
@@ -250,8 +250,8 @@ const Player = () => {
               <div className="flex items-center justify-center gap-6">
                 <Button
                   isIconOnly
-                  className={`hover:bg-white/10 transition-all duration-200 ${
-                    isRepeat ? "text-blue-400" : "text-gray-400"
+                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${
+                    isRepeat ? "text-blue-500" : "text-default-400"
                   }`}
                   radius="full"
                   variant="light"
@@ -262,7 +262,7 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className="hover:bg-white/10 transition-all duration-200"
+                  className="hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 text-foreground"
                   radius="full"
                   variant="light"
                   onClick={handlePrevious}
@@ -286,7 +286,7 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className="hover:bg-white/10 transition-all duration-200"
+                  className="hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 text-foreground"
                   radius="full"
                   variant="light"
                   onClick={handleNext}
@@ -296,8 +296,8 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className={`hover:bg-white/10 transition-all duration-200 ${
-                    isShuffle ? "text-blue-400" : "text-gray-400"
+                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${
+                    isShuffle ? "text-blue-500" : "text-default-400"
                   }`}
                   radius="full"
                   variant="light"
@@ -311,7 +311,7 @@ const Player = () => {
 
           {/* Letras */}
           <div className="flex items-center justify-center min-h-[100px] lg:min-h-[300px] order-2">
-            <div className="w-full max-w-2xl bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-white/5">
+            <div className="w-full max-w-2xl bg-white/20 dark:bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-black/5 dark:border-white/5">
               <Lyrics
                 currentTime={currentTime}
                 lyricsPath={currentSong.lyrics}

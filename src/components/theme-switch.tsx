@@ -4,7 +4,7 @@ import { SwitchProps, useSwitch } from "@heroui/switch";
 import { clsx } from "@heroui/shared-utils";
 import { useTranslation } from "react-i18next";
 
-import { useTheme } from "@/hooks/use-theme";
+import { useTheme } from "@/hooks/use-theme.tsx";
 import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
 
 export interface ThemeSwitchProps {

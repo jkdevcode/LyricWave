@@ -7,6 +7,10 @@ html {
   scroll-padding-top: 100px;
 }
 
+body {
+  @apply bg-background text-foreground min-h-screen;
+}
+
 /* customize container here using tailwindcss */
 .section-container {
   @apply px-4 sm:px-6 lg:px-8 py-16 container mx-auto;

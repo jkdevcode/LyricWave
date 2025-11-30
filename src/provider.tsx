@@ -5,6 +5,8 @@ import { HeroUIProvider } from "@heroui/system";
 import { ToastProvider } from "@heroui/toast";
 import { useHref, useNavigate } from "react-router-dom";
 
+import { ThemeProvider } from "@/hooks/use-theme.tsx";
+
 declare module "@react-types/shared" {
   interface RouterConfig {
     routerOptions: NavigateOptions;
@@ -16,8 +18,10 @@ export function Provider({ children }: { children: React.ReactNode }) {
 
   return (
     <HeroUIProvider navigate={navigate} useHref={useHref}>
-      <ToastProvider />
-      {children}
+      <ThemeProvider>
+        <ToastProvider />
+        {children}
+      </ThemeProvider>
     </HeroUIProvider>
   );
 }

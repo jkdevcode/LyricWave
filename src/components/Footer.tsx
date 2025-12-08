@@ -17,7 +17,7 @@ const Footer = () => {
       <Link
         isExternal
         className="flex items-center gap-1 text-current"
-        href="https://heroui.com"
+        href="https://josedvargas.vercel.app"
         title={t("heroui-com-homepage")}
       >
         <span className="text-default-600">

@@ -160,7 +160,7 @@ const Player = () => {
 
   const handlePrevious = () => {
     setCurrentSongIndex((prev) =>
-      prev === 0 ? musicData.length - 1 : prev - 1,
+      prev === 0 ? musicData.length - 1 : prev - 1
     );
   };
 
@@ -185,8 +185,8 @@ const Player = () => {
     <>
       <Visualizer isPlaying={isPlaying} />
 
-      <div className="relative z-10 container mx-auto px-4 py-8 ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ">
+      <div className="relative z-10 container mx-auto px-4 py-2 md:py-8 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2  gap-8 items-center ">
           {/* Reproductor */}
           <div className="flex justify-center items-center order-1">
             <div className="w-full max-w-md bg-white/40 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-black/5 dark:border-white/10">

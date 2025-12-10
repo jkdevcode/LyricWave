@@ -95,7 +95,7 @@ const Player = () => {
         });
       }
     }
-  }, [currentSongIndex, isPlaying]);
+  }, [currentSongIndex]);
 
   // Si termina la canción, pasa a la siguiente automáticamente
   const handleEnded = () => {

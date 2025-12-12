@@ -21,7 +21,7 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
 
     if (!ctx) return;
 
-    const particleCount = 150;
+    const particleCount = window.innerWidth < 768 ? 60 : 150;
 
     // Ajustar tamaño del canvas
     const resizeCanvas = () => {
@@ -96,16 +96,16 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
         gradient.addColorStop(
           0,
           isDark 
-            ? `rgba(96, 165, 250, ${particle.opacity + audioIntensity * 0.5})`
-            : `rgba(37, 99, 235, ${particle.opacity + audioIntensity * 0.5})`,
+            ? `rgba(56, 189, 248, ${particle.opacity + audioIntensity * 0.5})` // Sky blue 400
+            : `rgba(14, 165, 233, ${particle.opacity + audioIntensity * 0.5})`, // Sky blue 500
         );
         gradient.addColorStop(
           0.5,
           isDark
-            ? `rgba(147, 51, 234, ${particle.opacity * 0.5})`
-            : `rgba(126, 34, 206, ${particle.opacity * 0.5})`,
+            ? `rgba(125, 211, 252, ${particle.opacity * 0.5})` // Sky blue 300
+            : `rgba(56, 189, 248, ${particle.opacity * 0.5})`, // Sky blue 400
         );
-        gradient.addColorStop(1, isDark ? "rgba(96, 165, 250, 0)" : "rgba(37, 99, 235, 0)");
+        gradient.addColorStop(1, isDark ? "rgba(56, 189, 248, 0)" : "rgba(14, 165, 233, 0)");
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -123,8 +123,8 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
 
             if (distance < 100) {
               const strokeColor = isDark 
-                ? `rgba(147, 51, 234, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`
-                : `rgba(126, 34, 206, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`;
+                ? `rgba(125, 211, 252, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`
+                : `rgba(56, 189, 248, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`;
               
               ctx.strokeStyle = strokeColor;
               ctx.lineWidth = 1;

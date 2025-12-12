@@ -229,7 +229,7 @@ const Player = () => {
                 className="w-full mb-2"
                 classNames={{
                   track: "bg-default-200 dark:bg-gray-700",
-                  filler: "bg-gradient-to-r from-blue-500 to-purple-500",
+                  filler: "bg-gradient-to-r from-sky-400 to-cyan-500",
                   thumb: "bg-background shadow-lg",
                 }}
                 maxValue={duration}
@@ -251,7 +251,7 @@ const Player = () => {
                 <Button
                   isIconOnly
                   className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${
-                    isRepeat ? "text-blue-500" : "text-default-400"
+                    isRepeat ? "text-sky-400" : "text-default-400"
                   }`}
                   radius="full"
                   variant="light"
@@ -272,7 +272,7 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-200 transform hover:scale-105"
+                  className="bg-gradient-to-r from-sky-400 to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 transform hover:scale-105"
                   radius="full"
                   size="lg"
                   onClick={handlePlayPause}
@@ -297,7 +297,7 @@ const Player = () => {
                 <Button
                   isIconOnly
                   className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${
-                    isShuffle ? "text-blue-500" : "text-default-400"
+                    isShuffle ? "text-sky-400" : "text-default-400"
                   }`}
                   radius="full"
                   variant="light"

@@ -6,12 +6,13 @@ import {
 } from "@heroui/dropdown";
 import { Button } from "@heroui/button";
 import { Tooltip } from "@heroui/tooltip";
+
 import { EyeIcon } from "@/components/icons";
 import { useLyricMode } from "@/context/lyric-mode";
 
 export default function LyricSwitch() {
   const { mode, setMode } = useLyricMode();
-  
+
   return (
     <Tooltip content="Lyrics Mode" delay={750}>
       <div>
@@ -19,14 +20,14 @@ export default function LyricSwitch() {
           <DropdownTrigger>
             <Button
               isIconOnly
-              variant="light" 
-              className="text-default-500 hover:bg-default-100 transition-all duration-200"
               aria-label="Lyrics Mode"
+              className="text-default-500 hover:bg-default-100 transition-all duration-200"
+              variant="light"
             >
               <EyeIcon />
             </Button>
           </DropdownTrigger>
-          <DropdownMenu 
+          <DropdownMenu
             aria-label="Lyrics Mode Selection"
             onAction={(key) => setMode(key as "phrases" | "words")}
           >
@@ -52,4 +53,3 @@ export default function LyricSwitch() {
     </Tooltip>
   );
 }
-

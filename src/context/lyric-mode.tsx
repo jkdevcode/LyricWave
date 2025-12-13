@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
 type LyricMode = "phrases" | "words";
 
@@ -8,7 +8,9 @@ interface LyricModeContextType {
   setMode: (mode: LyricMode) => void;
 }
 
-const LyricModeContext = createContext<LyricModeContextType | undefined>(undefined);
+const LyricModeContext = createContext<LyricModeContextType | undefined>(
+  undefined,
+);
 
 export const LyricModeProvider = ({ children }: { children: ReactNode }) => {
   const [mode, setMode] = useState<LyricMode>("phrases");
@@ -26,8 +28,10 @@ export const LyricModeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useLyricMode = () => {
   const context = useContext(LyricModeContext);
+
   if (!context) {
     throw new Error("useLyricMode must be used within a LyricModeProvider");
   }
+
   return context;
 };

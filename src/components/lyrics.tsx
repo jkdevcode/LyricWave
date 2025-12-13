@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 interface LyricItem {
   start?: number;
   end?: number;
@@ -29,6 +29,7 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
   useEffect(() => {
     if (!lyricsData.length) {
       setCurrentLine("");
+
       return;
     }
 
@@ -42,13 +43,14 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
           item.start !== undefined &&
           item.end !== undefined &&
           currentTime >= item.start &&
-          currentTime <= item.end
+          currentTime <= item.end,
       );
 
       if (activeLyrics.length > 0) {
         const bestMatch = activeLyrics.reduce((prev, current) => {
           return (prev.start || 0) > (current.start || 0) ? prev : current;
         });
+
         setCurrentLine(bestMatch.text);
       } else {
         setCurrentLine("");
@@ -56,8 +58,10 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
     } else {
       // Phrase-by-phrase logic (time threshold)
       let foundLine: LyricItem | null = null;
+
       for (let i = lyricsData.length - 1; i >= 0; i--) {
         const line = lyricsData[i];
+
         if (line.time !== undefined && line.time <= currentTime) {
           foundLine = line;
           break;

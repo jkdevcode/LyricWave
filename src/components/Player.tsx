@@ -6,8 +6,8 @@ import musicData from "../../public/music/music.json";
 
 import Lyrics from "./lyrics";
 import Visualizer from "./Visualizer";
-import { useLyricMode } from "@/context/lyric-mode";
 
+import { useLyricMode } from "@/context/lyric-mode";
 import {
   HeartIcon,
   PauseCircleIcon,
@@ -161,7 +161,7 @@ const Player = () => {
 
   const handlePrevious = () => {
     setCurrentSongIndex((prev) =>
-      prev === 0 ? musicData.length - 1 : prev - 1
+      prev === 0 ? musicData.length - 1 : prev - 1,
     );
   };
 
@@ -186,10 +186,12 @@ const Player = () => {
 
   const getLyricsPath = () => {
     const lyrics = currentSong.lyrics;
+
     if (typeof lyrics === "string") return lyrics;
     // Fallback logic: if requested mode is missing, use whatever is available
     if (mode === "phrases" && lyrics.phrases) return lyrics.phrases;
     if (mode === "words" && lyrics.words) return lyrics.words;
+
     // Default fallback
     return lyrics.phrases || lyrics.words || "";
   };

@@ -1,6 +1,8 @@
 import { useRef, useEffect } from "react";
-import { useTheme } from "@/hooks/use-theme.tsx";
+
 import { getSharedAnalyser } from "./Player";
+
+import { useTheme } from "@/hooks/use-theme.tsx";
 
 interface VisualizerProps {
   isPlaying: boolean;
@@ -48,8 +50,10 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
     // Función de animación
     const animate = () => {
       const isDark = theme === "dark";
-      
-      ctx.fillStyle = isDark ? "rgba(0, 0, 0, 0.05)" : "rgba(255, 255, 255, 0.05)";
+
+      ctx.fillStyle = isDark
+        ? "rgba(0, 0, 0, 0.05)"
+        : "rgba(255, 255, 255, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       let audioIntensity = 0;
@@ -95,7 +99,7 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
 
         gradient.addColorStop(
           0,
-          isDark 
+          isDark
             ? `rgba(56, 189, 248, ${particle.opacity + audioIntensity * 0.5})` // Sky blue 400
             : `rgba(14, 165, 233, ${particle.opacity + audioIntensity * 0.5})`, // Sky blue 500
         );
@@ -105,7 +109,10 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
             ? `rgba(125, 211, 252, ${particle.opacity * 0.5})` // Sky blue 300
             : `rgba(56, 189, 248, ${particle.opacity * 0.5})`, // Sky blue 400
         );
-        gradient.addColorStop(1, isDark ? "rgba(56, 189, 248, 0)" : "rgba(14, 165, 233, 0)");
+        gradient.addColorStop(
+          1,
+          isDark ? "rgba(56, 189, 248, 0)" : "rgba(14, 165, 233, 0)",
+        );
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -122,10 +129,10 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 100) {
-              const strokeColor = isDark 
+              const strokeColor = isDark
                 ? `rgba(125, 211, 252, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`
                 : `rgba(56, 189, 248, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`;
-              
+
               ctx.strokeStyle = strokeColor;
               ctx.lineWidth = 1;
               ctx.beginPath();

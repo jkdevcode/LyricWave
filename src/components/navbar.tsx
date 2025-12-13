@@ -9,11 +9,12 @@ import { useTranslation } from "react-i18next";
 
 /* import { I18nIcon, LanguageSwitch } from "./language-switch"; */
 
+import LyricSwitch from "./lyric-switch";
+
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon } from "@/components/icons";
 import { Logo } from "@/components/icons";
-import LyricSwitch from "./lyric-switch";
 /* import { availableLanguages } from "@/i18n"; */
 
 export const Navbar = () => {

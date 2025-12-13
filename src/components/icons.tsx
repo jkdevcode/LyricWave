@@ -467,12 +467,7 @@ export const ShuffleIcon = ({
   );
 };
 
-export const EyeIcon = ({ 
-  size = 24, 
-  width, 
-  height, 
-  ...props 
-}: IconProps) => {
+export const EyeIcon = ({ size = 24, width, height, ...props }: IconProps) => {
   return (
     <svg
       aria-hidden="true"

@@ -4,7 +4,6 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenuToggle,
 } from "@heroui/navbar";
 import { useTranslation } from "react-i18next";
 
@@ -14,6 +13,7 @@ import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon } from "@/components/icons";
 import { Logo } from "@/components/icons";
+import LyricSwitch from "./lyric-switch";
 /* import { availableLanguages } from "@/i18n"; */
 
 export const Navbar = () => {
@@ -43,6 +43,7 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
+          <LyricSwitch />
           {/* <LanguageSwitch
             availableLanguages={availableLanguages}
             icon={I18nIcon}
@@ -55,11 +56,12 @@ export const Navbar = () => {
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />
+        <LyricSwitch />
         {/* <LanguageSwitch
           availableLanguages={availableLanguages}
           icon={I18nIcon}
         /> */}
-        <NavbarMenuToggle />
+        {/* <NavbarMenuToggle /> */}
       </NavbarContent>
     </HeroUINavbar>
   );

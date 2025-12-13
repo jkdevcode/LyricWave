@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import { CookieConsentProvider } from "./contexts/cookie-consent-context";
+import { LyricModeProvider } from "./context/lyric-mode";
 import { CookieConsent } from "./components/cookie-consent";
 import { PageNotFound } from "./pages/404";
 
@@ -14,15 +15,17 @@ import "./App.css";
 function App() {
   return (
     <CookieConsentProvider>
-      <CookieConsent />
-      <Routes>
-        <Route element={<IndexPage />} path="/" />
-        {/* <Route element={<DocsPage />} path="/docs" />
-        <Route element={<PricingPage />} path="/pricing" />
-        <Route element={<BlogPage />} path="/blog" />
-        <Route element={<AboutPage />} path="/about" /> */}
-        <Route element={<PageNotFound />} path="*" />
-      </Routes>
+      <LyricModeProvider>
+        <CookieConsent />
+        <Routes>
+          <Route element={<IndexPage />} path="/" />
+          {/* <Route element={<DocsPage />} path="/docs" />
+          <Route element={<PricingPage />} path="/pricing" />
+          <Route element={<BlogPage />} path="/blog" />
+          <Route element={<AboutPage />} path="/about" /> */}
+          <Route element={<PageNotFound />} path="*" />
+        </Routes>
+      </LyricModeProvider>
     </CookieConsentProvider>
   );
 }

@@ -6,6 +6,7 @@ import musicData from "../../public/music/music.json";
 
 import Lyrics from "./lyrics";
 import Visualizer from "./Visualizer";
+import { useLyricMode } from "@/context/lyric-mode";
 
 import {
   HeartIcon,
@@ -181,6 +182,20 @@ const Player = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  const { mode } = useLyricMode();
+
+  const getLyricsPath = () => {
+    const lyrics = currentSong.lyrics;
+    if (typeof lyrics === "string") return lyrics;
+    // Fallback logic: if requested mode is missing, use whatever is available
+    if (mode === "phrases" && lyrics.phrases) return lyrics.phrases;
+    if (mode === "words" && lyrics.words) return lyrics.words;
+    // Default fallback
+    return lyrics.phrases || lyrics.words || "";
+  };
+
+  const currentLyricsPath = getLyricsPath();
+
   return (
     <>
       <Visualizer isPlaying={isPlaying} />
@@ -314,7 +329,8 @@ const Player = () => {
             <div className="w-full max-w-2xl bg-white/20 dark:bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-black/5 dark:border-white/5">
               <Lyrics
                 currentTime={currentTime}
-                lyricsPath={currentSong.lyrics}
+                lyricsPath={currentLyricsPath}
+                mode={mode}
               />
             </div>
           </div>

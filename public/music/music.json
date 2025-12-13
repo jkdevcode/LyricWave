@@ -4,7 +4,10 @@
     "title": "Rock That Body",
     "artist": "The Black Eyed Peas",
     "src": "/music/Rock That Body.mp3",
-    "lyrics": "/lyrics/Rock That Body.json"
+    "lyrics": {
+      "phrases": "/lyrics/Rock That Body phrases.json",
+      "words": "/lyrics/Rock That Body words.json"
+    }
   },
   {
     "id": 2,

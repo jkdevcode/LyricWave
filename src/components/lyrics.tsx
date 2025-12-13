@@ -73,8 +73,8 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
 
   return (
     <div className="flex items-center justify-center h-full p-8">
-      <p className="text-3xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-400 to-blue-500 transition-all duration-300">
-        {currentLine || "♪ ♪ ♪"}
+      <p className="text-3xl md:text-5xl p-2 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-400 to-blue-500 transition-all duration-300">
+        {currentLine || "🎧 🎶"}
       </p>
     </div>
   );

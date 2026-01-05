@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "@heroui/link";
-import { Trans, useTranslation } from "react-i18next";
 
 import { fadeIn } from "../utils/motion";
 
 const Footer = () => {
-  const { t } = useTranslation();
 
   return (
     <motion.footer
@@ -18,10 +16,10 @@ const Footer = () => {
         isExternal
         className="flex items-center gap-1 text-current"
         href="https://josedvargas.vercel.app"
-        title={t("heroui-com-homepage")}
+        title="josedvargas.vercel.app"
       >
         <span className="text-default-600">
-          <Trans ns="base">powered-by</Trans>
+          <p>Powered by</p>
         </span>
         <p className="text-primary">Jos</p>
       </Link>

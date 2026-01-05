@@ -1,7 +1,6 @@
 import { Button } from "@heroui/button";
 import React from "react";
 import { Link } from "@heroui/link";
-import { Trans, useTranslation } from "react-i18next";
 import {
   Modal,
   ModalContent,
@@ -17,7 +16,6 @@ import { buttonGradient } from "./primitives";
 import { siteConfig } from "@/config/site";
 
 export const CookieConsent: React.FC = () => {
-  const { t } = useTranslation();
   const { cookieConsent, acceptCookies, rejectCookies } = useCookieConsent();
 
   // État pour contrôler la visibilité du modal
@@ -53,13 +51,16 @@ export const CookieConsent: React.FC = () => {
     >
       <ModalContent>
         <ModalHeader className="text-lg font-semibold text-default-900">
-          {t("cookie-consent-title")}
+          Cookie Consent
         </ModalHeader>
         <ModalBody className="text-small font-normal text-default-700">
-          <Trans i18nKey="cookie-consent" t={t} />
+          <p>
+            This website uses cookies to improve your experience while using it.
+            By continuing to use this website, you agree to our use of cookies.
+          </p>
           &nbsp;
           <Link className="text-small" href="#">
-            {t("cookie-policy")}
+            Cookie Policy
           </Link>
         </ModalBody>
         <ModalFooter className="flex justify-end gap-2">
@@ -68,14 +69,14 @@ export const CookieConsent: React.FC = () => {
               className={buttonGradient({ bordered: "violet" })}
               onPress={acceptCookies}
             >
-              {t("accept-all")}
+              Accept All
             </Button>
             <Button
               className="rounded-large"
               variant="bordered"
               onPress={rejectCookies}
             >
-              {t("reject")}
+              Reject
             </Button>
           </div>
         </ModalFooter>

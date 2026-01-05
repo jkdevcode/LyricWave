@@ -7,7 +7,7 @@ import musicData from "@/music/music.json";
 import Lyrics from "./lyrics";
 import Visualizer from "./Visualizer";
 
-import { useLyricMode } from "@/context/lyric-mode";
+import { useLyricMode } from "@/contexts/lyric-mode";
 import {
   HeartIcon,
   PauseCircleIcon,

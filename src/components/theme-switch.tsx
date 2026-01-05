@@ -2,7 +2,6 @@ import { FC, useState, useEffect } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@heroui/switch";
 import { clsx } from "@heroui/shared-utils";
-import { useTranslation } from "react-i18next";
 
 import { useTheme } from "@/hooks/use-theme.tsx";
 import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
@@ -16,7 +15,6 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   className,
   classNames,
 }) => {
-  const { t } = useTranslation();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -46,7 +44,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   return (
     <Component
       aria-label={
-        isSelected ? t("switch-to-dark-mode") : t("switch-to-light-mode")
+        isSelected ? "Switch to dark mode" : "Switch to light mode"
       }
       {...getBaseProps({
         className: clsx(

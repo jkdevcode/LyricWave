@@ -8,7 +8,7 @@ import { Button } from "@heroui/button";
 import { Tooltip } from "@heroui/tooltip";
 
 import { EyeIcon } from "@/components/icons";
-import { useLyricMode } from "@/context/lyric-mode";
+import { useLyricMode } from "@/contexts/lyric-mode";
 
 export default function LyricSwitch() {
   const { mode, setMode } = useLyricMode();

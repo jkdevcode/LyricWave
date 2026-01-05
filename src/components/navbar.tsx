@@ -5,9 +5,6 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@heroui/navbar";
-import { useTranslation } from "react-i18next";
-
-/* import { I18nIcon, LanguageSwitch } from "./language-switch"; */
 
 import LyricSwitch from "./lyric-switch";
 
@@ -15,10 +12,8 @@ import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon } from "@/components/icons";
 import { Logo } from "@/components/icons";
-/* import { availableLanguages } from "@/i18n"; */
 
 export const Navbar = () => {
-  const { t } = useTranslation();
 
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
@@ -40,15 +35,11 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href={siteConfig().links.github} title={t("github")}>
+          <Link isExternal href={siteConfig().links.github} title="github">
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
           <LyricSwitch />
-          {/* <LanguageSwitch
-            availableLanguages={availableLanguages}
-            icon={I18nIcon}
-          /> */}
         </NavbarItem>
       </NavbarContent>
 
@@ -58,11 +49,6 @@ export const Navbar = () => {
         </Link>
         <ThemeSwitch />
         <LyricSwitch />
-        {/* <LanguageSwitch
-          availableLanguages={availableLanguages}
-          icon={I18nIcon}
-        /> */}
-        {/* <NavbarMenuToggle /> */}
       </NavbarContent>
     </HeroUINavbar>
   );

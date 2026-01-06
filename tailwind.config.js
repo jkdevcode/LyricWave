@@ -9,6 +9,23 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /text-(default|primary|secondary|success|warning|danger)(-?\d{2,3})?/,
+    },
+    {
+      pattern: /bg-(default|primary|secondary|success|warning|danger)(-?\d{2,3})?/,
+    },
+    {
+      pattern: /border-(default|primary|secondary|success|warning|danger)(-?\d{2,3})?/,
+    },
+    {
+      pattern: /from-(default|primary|secondary|success|warning|danger)(-?\d{2,3})?/,
+    },
+    {
+      pattern: /to-(default|primary|secondary|success|warning|danger)(-?\d{2,3})?/,
+    },
+  ],
   theme: {
     extend: {
       backgroundImage: {

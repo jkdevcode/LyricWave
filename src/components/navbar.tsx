@@ -10,6 +10,7 @@ import LyricSwitch from "./lyric-switch";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
+import { ThemeColorSwitch } from "@/components/theme-switch-color";
 import { GithubIcon } from "@/components/icons";
 import { Logo } from "@/components/icons";
 
@@ -38,6 +39,7 @@ export const Navbar = () => {
           <Link isExternal href={siteConfig().links.github} title="github">
             <GithubIcon className="text-default-500" />
           </Link>
+          <ThemeColorSwitch />
           <ThemeSwitch />
           <LyricSwitch />
         </NavbarItem>

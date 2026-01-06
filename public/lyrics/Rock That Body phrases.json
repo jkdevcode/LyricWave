@@ -1,68 +1,402 @@
 [
-  { "time": 0, "text": "🎧 🎶" },
-  { "time": 16, "text": "I wanna rock right now" },
-  { "time": 19, "text": "I wanna, I wanna rock right now" },
-  { "time": 23, "text": "I wanna, I wanna rock right now" },
-  { "time": 28, "text": "I wanna, I wanna rock, right now" },
-  { "time": 32, "text": "I wanna da, I wanna dance in the lights" },
-  { "time": 35, "text": "I wanna ro, I wanna rock your body" },
-  { "time": 39, "text": "I wanna go, I wanna go for a ride" },
-  { "time": 43, "text": "Hop in the music and rock your body right" },
-  { "time": 47, "text": "Rock that body, come on come on, Rock that body" },
-  { "time": 50, "text": "Rock your body, Rock that body, come on come on, rock that body" },
-  { "time": 54, "text": "Rock that body, come on come on, Rock that body, Rock your body" },
-  { "time": 57, "text": "Rock that body, come on come on, rock that body" },
-  { "time": 60, "text": "Let me see your body rock, Shaking it from the bottom and top" },
-  { "time": 64, "text": "Freak to what the DJ drop, We be the ones to make it hot" },
-  { "time": 68, "text": "To make it hot, Electric shock, energy like a billion watts" },
-  { "time": 73, "text": "Space be boomin', the speakers pop, Galactic combin' missed a spot" },
-  { "time": 77, "text": "We bumpin' in your parking lot, When you're comin' up in the spot" },
-  { "time": 82, "text": "Don't bring nothin' we call pink dot, 'Cause we burnin' around the clock" },
-  { "time": 87, "text": "Hit the lights and then turn them off, If you bring that don't make you stop" },
-  { "time": 91, "text": "Like the jungle we run the block, No one rollin' the way we rock, way we rock" },
-  { "time": 94, "text": "I wanna, I wanna rock right now" },
-  { "time": 98, "text": "I wanna, I wanna rock right now, I wanna, I wanna rock, right, now" },
-  { "time": 101, "text": "I wanna da I wanna dance in the lights" },
-  { "time": 104, "text": "I wanna ro I wanna rock your body" },
-  { "time": 108, "text": "I wanna go I wanna go for a ride" },
-  { "time": 112, "text": "Hop in the music and rock your body right" },
-  { "time": 116, "text": "Rock that body, come on come on, Rock that body, Rock that body" },
-  { "time": 119, "text": "Rock that body, come on come on, rock that body" },
-  { "time": 123, "text": "Rock that body, come on come on, Rock that body, Rock your body" },
-  { "time": 126, "text": "Rock that body, come on come on, rock that body" },
-  { "time": 131, "text": "Superfly ladies, all of my superfly ladies" },
-  { "time": 136, "text": "All of my superfly ladies, All of my super, superfly ladies" },
-  { "time": 140, "text": "Yeah, you could be big bone, Long as you feel like your own" },
-  { "time": 144, "text": "You could be the model type, skinny with no appetite" },
-  { "time": 148, "text": "Short, stacked, black or white, Long as you do what you like, Body outta sight" },
-  { "time": 153, "text": "Body outta sight, Body body outta sight" },
-  { "time": 155, "text": "She does the two-step, And the tongue drop" },
-  { "time": 158, "text": "She does the cabbage patch, And the Bus Stop" },
-  { "time": 162, "text": "She like electro, Electro, She wrote hip-hop, Hip-hop" },
-  { "time": 165, "text": "She like the reggae, She feel punk rock, She wear samba and the mambo" },
-  { "time": 169, "text": "She like to break dance and calypso" },
-  { "time": 171, "text": "Getta little crazy, Getta little stupid" },
-  { "time": 173, "text": "Getta little crazy, Crazy, crazy, crazy" },
-  { "time": 175, "text": "I wanna da I wanna dance in the lights, I wanna dance in your light" },
-  { "time": 177, "text": "I wanna ro I wanna rock your body, Rock your body" },
-  { "time": 180, "text": "I wanna go I wanna go for a ride, You wanna go for a ride" },
-  { "time": 184, "text": "Hop in the music and rock your body right" },
-  { "time": 189, "text": "(Música instrumental) Sat upright, Rock your body right" },
-  { "time": 197, "text": "Sat upright, Rock your body right, Rock" },
-  { "time": 203, "text": "Come on, yeah" },
-  { "time": 208, "text": "Rock that body, come on come on, Rock that body, Come on, yeah" },
-  { "time": 213, "text": "Rock that body, Come on come on, Rock, rock, rock, Rock that body, Rock, rock, rock" },
-  { "time": 218, "text": "Go oh oh oh oh oh oh oh" },
-  { "time": 219, "text": "Let's go oh oh oh oh oh oh" },
-  { "time": 223, "text": "Let's go oh oh oh oh oh oh" },
-  { "time": 226, "text": "Let's go oh oh oh oh oh oh" },
-  { "time": 230, "text": "I wanna, I wanna rock right now" },
-  { "time": 234, "text": "I wanna, I wanna rock, Sat upright, I wanna, I wanna rock" },
-  { "time": 238, "text": "Let's go oh oh oh oh oh oh" },
-  { "time": 242, "text": "I wanna, I wanna rock, Sat upright, I wanna, I wanna rock" },
-  { "time": 246, "text": "Let's go oh oh oh oh oh oh" },
-  { "time": 249, "text": "Let's go oh oh oh oh oh oh" },
-  { "time": 254, "text": "I wanna, I wanna rock right now, I wanna, I wanna rock right now" },
-  { "time": 258, "text": "I wanna, I wanna rock right now, now, now, rock right now" },
-  { "time": 261, "text": "I wanna, I wanna rock right now, I wanna, I wanna rock right now, I wanna, I wanna rock, right, now" }
+  {
+    "start": 0.0,
+    "end": 15.90,
+    "text": "🎧 🎶"
+  }, 
+  {
+    "start": 16.00,
+    "end": 16.28,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 16.4,
+    "end": 21.46,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 32.02,
+    "end": 34.86,
+    "text": "I wanna dance in the lights"
+  },
+  {
+    "start": 35.8,
+    "end": 38.88,
+    "text": "I wanna rock your body"
+  },
+  {
+    "start": 39.68,
+    "end": 42.5,
+    "text": "I wanna go for a ride"
+  },
+  {
+    "start": 43.46,
+    "end": 46.72,
+    "text": "Hop into music and rock your body"
+  },
+  {
+    "start": 47.08,
+    "end": 49.84,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 49.96,
+    "end": 54.16,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 54.78,
+    "end": 57.19,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 57.19,
+    "end": 61.4,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 61.48,
+    "end": 63.16,
+    "text": "Let me see your body rock"
+  },
+  {
+    "start": 63.36,
+    "end": 65.08,
+    "text": "Shaking it from the bottom to top"
+  },
+  {
+    "start": 65.32,
+    "end": 66.98,
+    "text": "Freak to what the DJ drop"
+  },
+  {
+    "start": 67.26,
+    "end": 68.92,
+    "text": "We be the ones to make it hot"
+  },
+  {
+    "start": 70.04,
+    "end": 70.86,
+    "text": "Electric shock"
+  },
+  {
+    "start": 71.1,
+    "end": 72.6,
+    "text": "Energy like a billiard"
+  },
+  {
+    "start": 72.96,
+    "end": 74.7,
+    "text": "Space be roomin' a speaker's pop"
+  },
+  {
+    "start": 74.72,
+    "end": 76.6,
+    "text": "Galactic comb in Mr. Spot"
+  },
+  {
+    "start": 76.78,
+    "end": 78.58,
+    "text": "We bumpin' in your parking lot"
+  },
+  {
+    "start": 78.8,
+    "end": 80.52,
+    "text": "When you comin' up in the spot"
+  },
+  {
+    "start": 80.7,
+    "end": 82.44,
+    "text": "Don't bring nothin' we call pink dot"
+  },
+  {
+    "start": 82.66,
+    "end": 84.32,
+    "text": "Cause we burnin' around the clock"
+  },
+  {
+    "start": 85.0,
+    "end": 86.26,
+    "text": "Turn the lights and then turn them off"
+  },
+  {
+    "start": 86.5,
+    "end": 88.1,
+    "text": "If you green, that don't make you soft"
+  },
+  {
+    "start": 88.5,
+    "end": 90.06,
+    "text": "Like the jungle we run the block"
+  },
+  {
+    "start": 90.5,
+    "end": 92.0,
+    "text": "No one rollin' the way we rock"
+  },
+  {
+    "start": 92.5,
+    "end": 94.42,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 101.08,
+    "end": 103.98,
+    "text": "I wanna dance in the lights"
+  },
+  {
+    "start": 104.88,
+    "end": 108.18,
+    "text": "I wanna rock your body"
+  },
+  {
+    "start": 108.76,
+    "end": 111.72,
+    "text": "I wanna go for a ride"
+  },
+  {
+    "start": 113.0,
+    "end": 115.86,
+    "text": "When the music can rock your body"
+  },
+  {
+    "start": 116.5,
+    "end": 118.96,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 120.5,
+    "end": 123.4,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 125.04,
+    "end": 127.6,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 131.06,
+    "end": 134.14,
+    "text": "Superfly ladies, all of my superfly ladies"
+  },
+  {
+    "start": 134.5,
+    "end": 138.88,
+    "text": "All of my superfly ladies"
+  },
+  {
+    "start": 139.32,
+    "end": 140.98,
+    "text": "You could be big bone"
+  },
+  {
+    "start": 141.1,
+    "end": 142.8,
+    "text": "Long as you feel like you own"
+  },
+  {
+    "start": 143.12,
+    "end": 144.76,
+    "text": "You could be the model type"
+  },
+  {
+    "start": 144.98,
+    "end": 146.64,
+    "text": "Skinny with no appetite"
+  },
+  {
+    "start": 146.96,
+    "end": 148.64,
+    "text": "Short stack, black or white"
+  },
+  {
+    "start": 148.9,
+    "end": 150.54,
+    "text": "Long as you do what you like"
+  },
+  {
+    "start": 150.8,
+    "end": 152.0,
+    "text": "Body out of sight"
+  },
+  {
+    "start": 152.78,
+    "end": 153.9,
+    "text": "Body out of sight"
+  },
+  {
+    "start": 154.5,
+    "end": 156.04,
+    "text": "She does a two step and a tongue drive"
+  },
+  {
+    "start": 156.5,
+    "end": 157.76,
+    "text": "She does a cabbage patch and a mustache"
+  },
+  {
+    "start": 158.5,
+    "end": 159.88,
+    "text": "She likes electric, she likes a hip hop"
+  },
+  {
+    "start": 160.5,
+    "end": 161.76,
+    "text": "She likes a break gate, she feels punk rock"
+  },
+  {
+    "start": 162.5,
+    "end": 163.7,
+    "text": "She likes Samba and the Mambo"
+  },
+  {
+    "start": 164.5,
+    "end": 165.58,
+    "text": "She likes to break dance and Calypso"
+  },
+  {
+    "start": 167.0,
+    "end": 169.72,
+    "text": "Get that story, get that crazy, crazy, crazy, crazy"
+  },
+  {
+    "start": 170.94,
+    "end": 173.1,
+    "text": "I wanna dance in the lights"
+  },
+  {
+    "start": 175.0,
+    "end": 177.2,
+    "text": "I wanna rock your body"
+  },
+  {
+    "start": 178.72,
+    "end": 180.78,
+    "text": "I wanna go for a ride"
+  },
+  {
+    "start": 182.5,
+    "end": 184.86,
+    "text": "When the music can rock your body"
+  },
+  {
+    "start": 190.84,
+    "end": 195.54,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 198.76,
+    "end": 201.48,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 201.48,
+    "end": 205.13,
+    "text": "Rock your body, come on, rock your body"
+  },
+  {
+    "start": 205.13,
+    "end": 211.08,
+    "text": "Rock your body, come on, come on, rock your body"
+  },
+  {
+    "start": 212.02,
+    "end": 213.5,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 213.5,
+    "end": 215.2,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 215.36,
+    "end": 217.48,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 217.48,
+    "end": 218.81,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 218.81,
+    "end": 222.9,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 223.26,
+    "end": 226.7,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 227.12,
+    "end": 230.1,
+    "text": "Rock your body, rock your body"
+  },
+  {
+    "start": 230.58,
+    "end": 232.66,
+    "text": "I wanna rock, I wanna rock right now"
+  },
+  {
+    "start": 234.82,
+    "end": 237.36,
+    "text": "I wanna rock, I wanna rock"
+  },
+  {
+    "start": 237.36,
+    "end": 237.84,
+    "text": "I wanna rock, I wanna rock"
+  },
+  {
+    "start": 238.62,
+    "end": 241.72,
+    "text": "Yeah, go, oh, oh, oh, oh, oh"
+  },
+  {
+    "start": 242.5,
+    "end": 245.52,
+    "text": "I wanna rock, I wanna rock, I wanna rock"
+  },
+  {
+    "start": 246.5,
+    "end": 249.4,
+    "text": "Yeah, go, oh, oh, oh, oh, oh, oh"
+  },
+  {
+    "start": 250.5,
+    "end": 253.86,
+    "text": "Yeah, go, oh, oh, oh, oh, oh, oh, oh, oh"
+  },
+  {
+    "start": 254.5,
+    "end": 255.68,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 256.5,
+    "end": 257.62,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 258.5,
+    "end": 259.54,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 261.62,
+    "end": 263.34,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 263.58,
+    "end": 265.32,
+    "text": "I wanna rock right now"
+  },
+  {
+    "start": 265.54,
+    "end": 268.34,
+    "text": "I wanna rock right now"
+  }
 ]

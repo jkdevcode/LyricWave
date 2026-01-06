@@ -1,48 +1,192 @@
 [
-  { "time": 0, "text": "🎧 🎶" },
-  { "time": 20, "text": "You've been my muse for a long time" },
-  { "time": 24, "text": "You get me through every dark night" },
-  { "time": 26, "text": "I'm always gone, out on the go" },
-  { "time": 34, "text": "I'm on the run and you're home alone" },
-  { "time": 36, "text": "I'm too consumed with my own life" },
-  { "time": 43, "text": "Are we too young for this?" },
-  { "time": 48, "text": "Feels like I can't move" },
-  { "time": 50, "text": "Sharing my heart" },
-  { "time": 50, "text": "It's tearing me apart" },
-  { "time": 54, "text": "But I know I'd miss you, baby, if I left right now" },
-  { "time": 56, "text": "Doing what I can, tryna be a man" },
-  { "time": 60, "text": "And every time I kiss you, baby" },
-  { "time": 64, "text": "I can hear the sound of breaking down" },
-  { "time": 69, "text": "I've been confused as of late (Yeah)" },
-  { "time": 73, "text": "Watching my youth slip away (Yeah)" },
-  { "time": 76, "text": "You're like the sun, you wake me up" },
-  { "time": 80, "text": "But you drain me out if I get too much" },
-  { "time": 84, "text": "I might need room or I'll break" },
-  { "time": 88, "text": "Are we too young for this?" },
-  { "time": 92, "text": "Feels like I can't move" },
-  { "time": 94, "text": "Sharing my heart" },
-  { "time": 98, "text": "It's tearing me apart" },
-  { "time": 102, "text": "But I know I'd miss you, baby, if I left right now" },
-  { "time": 106, "text": "Doing what I can, tryna be a man" },
-  { "time": 110, "text": "And every time I kiss you, baby" },
-  { "time": 114, "text": "I can hear the sound of breaking down" },
-  { "time": 118, "text": "(Vocalización/Instrumental) Breaking down, breaking down, breaking down" },
-  { "time": 126, "text": "I don't want to play this part" },
-  { "time": 129, "text": "But I do, all for you" },
-  { "time": 133, "text": "I don't want to make this hard" },
-  { "time": 137, "text": "But I will 'cause I'm still" },
-  { "time": 139, "text": "Sharing my heart" },
-  { "time": 143, "text": "It's tearing me apart" },
-  { "time": 147, "text": "But I know I'd miss you, baby, if I left right now (I know I would)" },
-  { "time": 151, "text": "Doing what I can, tryna be a man (Be your man)" },
-  { "time": 155, "text": "And every time I kiss you, baby" },
-  { "time": 159, "text": "I can hear the sound of breaking down" },
-  { "time": 163, "text": "Sharing my bed, ooh" },
-  { "time": 167, "text": "Sharing my bread, yeah" },
-  { "time": 171, "text": "Sharing my bread" },
-  { "time": 174, "text": "Sharing my head (I'm breaking down)" },
-  { "time": 178, "text": "Sharing my heart" },
-  { "time": 182, "text": "Sharing my, suddenly I'm (Breaking down)" },
-  { "time": 186, "text": "Sharing, I'm done" },
-  { "time": 189, "text": "Sharing my life" }
+  {
+    "start": 0.0,
+    "end": 21.00,
+    "text": "🎧 🎶"
+  },
+  {
+    "start": 21.98,
+    "end": 26.16,
+    "text": "You've been my muse for a long time"
+  },
+  {
+    "start": 26.98,
+    "end": 31.2,
+    "text": "You get me through every dark night"
+  },
+  {
+    "start": 31.86,
+    "end": 34.14,
+    "text": "I'm always good, I know I look good"
+  },
+  {
+    "start": 34.42,
+    "end": 36.72,
+    "text": "I'm all the fun in your home alone"
+  },
+  {
+    "start": 37.28,
+    "end": 41.56,
+    "text": "I'm too consume with my own life"
+  },
+  {
+    "start": 43.44,
+    "end": 46.44,
+    "text": "Oh, it's too new, you're the best"
+  },
+  {
+    "start": 48.4,
+    "end": 50.12,
+    "text": "Feels like I can't move"
+  },
+  {
+    "start": 51.18,
+    "end": 54.16,
+    "text": "Sharing my heart, it's tearing me apart"
+  },
+  {
+    "start": 55.06,
+    "end": 58.18,
+    "text": "But I know I miss you baby if I lock right now"
+  },
+  {
+    "start": 61.34,
+    "end": 64.3,
+    "text": "Doing what I can, trying to be a man"
+  },
+  {
+    "start": 65.22,
+    "end": 68.52,
+    "text": "And every time I kiss you baby I got near the sound"
+  },
+  {
+    "start": 69.52,
+    "end": 70.98,
+    "text": "Of breaking down"
+  },
+  {
+    "start": 83.24,
+    "end": 86.66,
+    "text": "I've been confused as of late"
+  },
+  {
+    "start": 88.28,
+    "end": 91.74,
+    "text": "Watching my youth step away"
+  },
+  {
+    "start": 93.12,
+    "end": 95.42,
+    "text": "You like the sun, you wake me up"
+  },
+  {
+    "start": 95.58,
+    "end": 98.02,
+    "text": "But you don't train me out if I get too much"
+  },
+  {
+    "start": 98.2,
+    "end": 101.98,
+    "text": "I, I, leave, all of my break"
+  },
+  {
+    "start": 104.72,
+    "end": 107.82,
+    "text": "Oh, it's too new, you're the best"
+  },
+  {
+    "start": 109.64,
+    "end": 111.28,
+    "text": "Feels like I can't move"
+  },
+  {
+    "start": 112.44,
+    "end": 115.48,
+    "text": "Sharing my heart, it's tearing me apart"
+  },
+  {
+    "start": 116.3,
+    "end": 119.54,
+    "text": "But I know I miss you baby if I lock right now"
+  },
+  {
+    "start": 122.72,
+    "end": 125.6,
+    "text": "Doing what I can, trying to be a man"
+  },
+  {
+    "start": 126.44,
+    "end": 129.76,
+    "text": "And every time I kiss you baby I got near the sound"
+  },
+  {
+    "start": 130.78,
+    "end": 132.24,
+    "text": "Of breaking down"
+  },
+  {
+    "start": 143.9,
+    "end": 148.02,
+    "text": "I don't want to play this part"
+  },
+  {
+    "start": 148.34,
+    "end": 152.58,
+    "text": "Where I do, all for you"
+  },
+  {
+    "start": 154.04,
+    "end": 158.24,
+    "text": "I don't want to make this part"
+  },
+  {
+    "start": 159.0,
+    "end": 162.76,
+    "text": "Oh, guys I'm still"
+  },
+  {
+    "start": 163.54,
+    "end": 166.58,
+    "text": "Sharing my heart, it's tearing me apart"
+  },
+  {
+    "start": 167.48,
+    "end": 170.56,
+    "text": "But I know I miss you baby if I lock right now"
+  },
+  {
+    "start": 173.86,
+    "end": 176.66,
+    "text": "Doing what I can, trying to be a man"
+  },
+  {
+    "start": 177.56,
+    "end": 180.84,
+    "text": "And every time I kiss you baby I got near the sound"
+  },
+  {
+    "start": 181.88,
+    "end": 183.46,
+    "text": "Of breaking down"
+  },
+  {
+    "start": 189.24,
+    "end": 192.1,
+    "text": "Of breaking down"
+  },
+  {
+    "start": 193.54,
+    "end": 195.92,
+    "text": "Of breaking down"
+  },
+  {
+    "start": 198.56,
+    "end": 201.04,
+    "text": "Of breaking down"
+  },
+  {
+    "start": 201.22,
+    "end": 203.5,
+    "text": "Of breaking down"
+  }
 ]

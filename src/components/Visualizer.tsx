@@ -3,6 +3,8 @@ import { useRef, useEffect } from "react";
 import { getSharedAnalyser } from "./Player";
 
 import { useTheme } from "@/hooks/use-theme.tsx";
+import { THEME_COLOR_MAP } from "@/theme/theme.config";
+import { useColorTheme } from "@/hooks/use-color-theme";
 
 interface VisualizerProps {
   isPlaying: boolean;
@@ -10,6 +12,7 @@ interface VisualizerProps {
 
 export default function Visualizer({ isPlaying }: VisualizerProps) {
   const { theme } = useTheme();
+  const { appColor } = useColorTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
   const particlesRef = useRef<any[]>([]);
@@ -97,21 +100,22 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
           glowSize,
         );
 
+        // Obtener color base según tema y configuración
+        const baseColor = isDark
+          ? THEME_COLOR_MAP[appColor].dark
+          : THEME_COLOR_MAP[appColor].light;
+
         gradient.addColorStop(
           0,
-          isDark
-            ? `rgba(56, 189, 248, ${particle.opacity + audioIntensity * 0.5})` // Sky blue 400
-            : `rgba(14, 165, 233, ${particle.opacity + audioIntensity * 0.5})`, // Sky blue 500
+          `rgba(${baseColor}, ${particle.opacity + audioIntensity * 0.5})`
         );
         gradient.addColorStop(
           0.5,
-          isDark
-            ? `rgba(125, 211, 252, ${particle.opacity * 0.5})` // Sky blue 300
-            : `rgba(56, 189, 248, ${particle.opacity * 0.5})`, // Sky blue 400
+          `rgba(${baseColor}, ${particle.opacity * 0.5})`
         );
         gradient.addColorStop(
           1,
-          isDark ? "rgba(56, 189, 248, 0)" : "rgba(14, 165, 233, 0)",
+          `rgba(${baseColor}, 0)`
         );
 
         ctx.fillStyle = gradient;
@@ -129,9 +133,11 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < 100) {
-              const strokeColor = isDark
-                ? `rgba(125, 211, 252, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`
-                : `rgba(56, 189, 248, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`;
+              const baseColor = isDark
+                ? THEME_COLOR_MAP[appColor].dark
+                : THEME_COLOR_MAP[appColor].light;
+
+              const strokeColor = `rgba(${baseColor}, ${(1 - distance / 100) * 0.2 * (1 + audioIntensity)})`;
 
               ctx.strokeStyle = strokeColor;
               ctx.lineWidth = 1;
@@ -155,7 +161,7 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isPlaying, theme]);
+  }, [isPlaying, theme, appColor]);
 
   return (
     <canvas

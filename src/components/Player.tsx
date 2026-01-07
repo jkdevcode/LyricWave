@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Slider } from "@heroui/slider";
 
+import { useColorTheme } from "@/hooks/use-color-theme";
 import musicData from "@/music/music.json";
 
 import Lyrics from "./lyrics";
@@ -74,6 +75,7 @@ const Player = () => {
   const currentSong = musicData[currentSongIndex];
   const [isRepeat, setIsRepeat] = useState(false);
   const [isShuffle, setIsShuffle] = useState(false);
+  const { appColor } = useColorTheme();
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -246,7 +248,7 @@ const Player = () => {
                 className="w-full mb-2"
                 classNames={{
                   track: "bg-default-200 dark:bg-gray-700",
-                  filler: "bg-gradient-to-r from-sky-400 to-cyan-500",
+                  filler: `bg-${appColor} dark:bg-${appColor}`,
                   thumb: "bg-background shadow-lg",
                 }}
                 maxValue={duration}
@@ -267,7 +269,7 @@ const Player = () => {
               <div className="flex items-center justify-center gap-6">
                 <Button
                   isIconOnly
-                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${isRepeat ? "text-sky-400" : "text-default-400"
+                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${isRepeat ? `text-${appColor}` : "text-default-400"
                     }`}
                   radius="full"
                   variant="light"
@@ -288,7 +290,7 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className="bg-gradient-to-r from-sky-400 to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-200 transform hover:scale-105"
+                  className={`bg-${appColor} hover:shadow-lg hover:shadow-${appColor}/50 transition-all duration-200 transform hover:scale-105 text-white`}
                   radius="full"
                   size="lg"
                   onClick={handlePlayPause}
@@ -312,7 +314,7 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${isShuffle ? "text-sky-400" : "text-default-400"
+                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${isShuffle ? `text-${appColor}` : "text-default-400"
                     }`}
                   radius="full"
                   variant="light"

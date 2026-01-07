@@ -2,6 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@heroui/switch";
 import { clsx } from "@heroui/shared-utils";
+import { Tooltip } from "@heroui/tooltip";
 
 import { useTheme } from "@/hooks/use-theme.tsx";
 import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
@@ -41,50 +42,52 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   if (!isMounted) return <div className="w-6 h-6" />;
 
   return (
-    <Component
-      aria-label={isSelected ? "Switch to dark mode" : "Switch to light mode"}
-      {...getBaseProps({
-        className: clsx(
-          "px-px transition-opacity hover:opacity-80 cursor-pointer",
-          className,
-          classNames?.base,
-        ),
-      })}
-    >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
-      <div
-        {...getWrapperProps()}
-        className={slots.wrapper({
-          class: clsx(
-            [
-              "w-auto h-auto",
-              "bg-transparent",
-              "rounded-lg",
-              "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
-            ],
-            classNames?.wrapper,
+    <Tooltip content="Theme Mode" delay={750}>
+      <Component
+        aria-label={isSelected ? "Switch to dark mode" : "Switch to light mode"}
+        {...getBaseProps({
+          className: clsx(
+            "px-px transition-opacity hover:opacity-80 cursor-pointer",
+            className,
+            classNames?.base,
           ),
         })}
       >
-        {theme === "dark" ? (
-          <MoonFilledIcon
-            className="text-2xl text-default-400 pointer-events-none shrink-0"
-            size={22}
-          />
-        ) : (
-          <SunFilledIcon
-            className="text-2xl text-default-400 pointer-events-none shrink-0"
-            size={22}
-          />
-        )}
-      </div>
-    </Component>
+        <VisuallyHidden>
+          <input {...getInputProps()} />
+        </VisuallyHidden>
+        <div
+          {...getWrapperProps()}
+          className={slots.wrapper({
+            class: clsx(
+              [
+                "w-auto h-auto",
+                "bg-transparent",
+                "rounded-lg",
+                "flex items-center justify-center",
+                "group-data-[selected=true]:bg-transparent",
+                "!text-default-500",
+                "pt-px",
+                "px-0",
+                "mx-0",
+              ],
+              classNames?.wrapper,
+            ),
+          })}
+        >
+          {theme === "dark" ? (
+            <MoonFilledIcon
+              className="text-2xl text-default-400 pointer-events-none shrink-0"
+              size={22}
+            />
+          ) : (
+            <SunFilledIcon
+              className="text-2xl text-default-400 pointer-events-none shrink-0"
+              size={22}
+            />
+          )}
+        </div>
+      </Component>
+    </Tooltip>
   );
 };

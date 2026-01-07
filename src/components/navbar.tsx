@@ -4,6 +4,9 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
 } from "@heroui/navbar";
 
 import LyricSwitch from "./lyric-switch";
@@ -44,13 +47,34 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig().links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
-        <ThemeSwitch />
-        <LyricSwitch />
+      <NavbarContent className="sm:hidden" justify="end">
+        <NavbarMenuToggle />
       </NavbarContent>
+
+      <NavbarMenu>
+        <NavbarMenuItem>
+          <div className="flex items-center justify-between px-4 py-2 mt-4">
+            <span className="text-tiny text-default-400 uppercase font-bold tracking-widest">
+              Personalization
+            </span>
+            <div className="flex items-center gap-4">
+              <ThemeColorSwitch />
+              <ThemeSwitch />
+              <LyricSwitch />
+            </div>
+          </div>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link
+            isExternal
+            className="flex items-center gap-2 px-4 py-2 text-default-500"
+            href={siteConfig().links.github}
+          >
+            <GithubIcon size={24} />
+            Github
+          </Link>
+        </NavbarMenuItem>
+      </NavbarMenu>
     </HeroUINavbar>
   );
 };

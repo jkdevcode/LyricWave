@@ -11,12 +11,12 @@
   },
   {
     "id": 2,
-    "title": "Starboy",
-    "artist": "The Weeknd - Starboy ft. Daft Punk",
-    "src": "/music/Starboy.mp3",
+    "title": "Billie Jean",
+    "artist": "Michael Jackson",
+    "src": "/music/Billie Jean.mpeg",
     "lyrics": {
-      "phrases": "/lyrics/Starboy phrases.json",
-      "words": "/lyrics/Starboy words.json"
+      "phrases": "/lyrics/Billie Jean phrases.json",
+      "words": "/lyrics/Billie Jean words.json"
     }
   },
   {
@@ -27,6 +27,26 @@
     "lyrics": {
       "phrases": "/lyrics/Softcore phrases.json",
       "words": "/lyrics/Softcore words.json"
+    }
+  },
+  {
+    "id": 4,
+    "title": "The Thrift Shop",
+    "artist": "Macklemore & Ryan Lewis",
+    "src": "/music/The Thrift Shop.mpeg",
+    "lyrics": {
+      "phrases": "/lyrics/The Thrift Shop phrases.json",
+      "words": "/lyrics/The Thrift Shop words.json"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Everybody",
+    "artist": "Backstreet Boys",
+    "src": "/music/Everybody.mpeg",
+    "lyrics": {
+      "phrases": "/lyrics/Everybody phrases.json",
+      "words": "/lyrics/Everybody words.json"
     }
   }
 ]

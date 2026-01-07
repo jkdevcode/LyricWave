@@ -107,16 +107,13 @@ export default function Visualizer({ isPlaying }: VisualizerProps) {
 
         gradient.addColorStop(
           0,
-          `rgba(${baseColor}, ${particle.opacity + audioIntensity * 0.5})`
+          `rgba(${baseColor}, ${particle.opacity + audioIntensity * 0.5})`,
         );
         gradient.addColorStop(
           0.5,
-          `rgba(${baseColor}, ${particle.opacity * 0.5})`
+          `rgba(${baseColor}, ${particle.opacity * 0.5})`,
         );
-        gradient.addColorStop(
-          1,
-          `rgba(${baseColor}, 0)`
-        );
+        gradient.addColorStop(1, `rgba(${baseColor}, 0)`);
 
         ctx.fillStyle = gradient;
         ctx.beginPath();

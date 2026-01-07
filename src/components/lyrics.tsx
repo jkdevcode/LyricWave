@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { useColorTheme } from "@/hooks/use-color-theme";
 interface LyricItem {
   start?: number;
@@ -74,7 +75,9 @@ const Lyrics = ({ currentTime, lyricsPath }: LyricsProps) => {
   }, [currentTime, lyricsData]);
 
   return (
-    <p className={`text-3xl md:text-5xl p-2 font-bold text-center text-${appColor} transition-all duration-300`}>
+    <p
+      className={`text-3xl md:text-5xl p-2 font-bold text-center text-${appColor} transition-all duration-300`}
+    >
       {currentLine || "🎧 🎶"}
     </p>
   );

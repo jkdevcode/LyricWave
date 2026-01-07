@@ -2,12 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Slider } from "@heroui/slider";
 
-import { useColorTheme } from "@/hooks/use-color-theme";
-import musicData from "@/music/music.json";
-
 import Lyrics from "./lyrics";
 import Visualizer from "./Visualizer";
 
+import { useColorTheme } from "@/hooks/use-color-theme";
+import musicData from "@/music/music.json";
 import { useLyricMode } from "@/contexts/lyric-mode";
 import {
   HeartIcon,
@@ -26,8 +25,9 @@ let sharedSource: MediaElementAudioSourceNode | null = null;
 
 export const getSharedAudioContext = () => {
   if (!sharedAudioContext) {
-    sharedAudioContext = new (window.AudioContext ||
-      (window as any).webkitAudioContext)();
+    sharedAudioContext = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
   }
 
   return sharedAudioContext;
@@ -269,8 +269,9 @@ const Player = () => {
               <div className="flex items-center justify-center gap-6">
                 <Button
                   isIconOnly
-                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${isRepeat ? `text-${appColor}` : "text-default-400"
-                    }`}
+                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${
+                    isRepeat ? `text-${appColor}` : "text-default-400"
+                  }`}
                   radius="full"
                   variant="light"
                   onClick={() => setIsRepeat((r) => !r)}
@@ -314,8 +315,9 @@ const Player = () => {
 
                 <Button
                   isIconOnly
-                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${isShuffle ? `text-${appColor}` : "text-default-400"
-                    }`}
+                  className={`hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 ${
+                    isShuffle ? `text-${appColor}` : "text-default-400"
+                  }`}
                   radius="full"
                   variant="light"
                   onClick={() => setIsShuffle((s) => !s)}

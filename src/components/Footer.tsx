@@ -4,7 +4,6 @@ import { Link } from "@heroui/link";
 import { fadeIn } from "../utils/motion";
 
 const Footer = () => {
-
   return (
     <motion.footer
       className="bg-white dark:bg-black w-full flex items-center justify-center py-3"

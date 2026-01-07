@@ -19,9 +19,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
   return (
     <HeroUIProvider navigate={navigate} useHref={useHref}>
       <ThemeProvider>
-        <ColorThemeProvider>
-          {children}
-        </ColorThemeProvider>
+        <ColorThemeProvider>{children}</ColorThemeProvider>
       </ThemeProvider>
     </HeroUIProvider>
   );
